@@ -9,6 +9,7 @@ input, textarea{
   padding: 2px;
   border: 1px solid rgb(68, 68, 68);
   font-size: 14px;
+  outline: none;
 }
 
 label {
@@ -22,6 +23,7 @@ label {
   margin: auto; 
   background-color: white; 
   color: red;
+  outline: none;
 }
 
 h1 {
