@@ -45,7 +45,9 @@ Vue.component('mainpage', {
   template: `
     <div>
       <button @click="toggleAddButton" class="button" style="font-size: 20px; width: 50px; border-radius: 50px;">+</button>
-      <addnote v-show="showAddButton" @note-submitted="addNote"></addnote>
+      <transition name="fade">
+        <addnote v-show="showAddButton" @note-submitted="addNote"></addnote>
+      </transition>
       <ul style="padding: 0; list-style: none;">
         <li v-for="note in notes" :key="note.id" style="padding: none;">
           <div class="note">
@@ -60,14 +62,11 @@ Vue.component('mainpage', {
   methods: {
     addNote(note) {
       this.notes.push(note);
-      console.log('this push worked with id: ' + note.id);
     },
     deleteNote(note) {
       this.notes.splice(this.notes.indexOf(note), 1);
-      console.log('this splice worked ' + this.notes.indexOf(note));
     },
     toggleAddButton() {
-      console.log("this runs!")
       if (this.showAddButton === false) {
         this.showAddButton = true;
       } else {
