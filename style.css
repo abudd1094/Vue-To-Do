@@ -1,10 +1,14 @@
 body {
   font-size: 16px;
   font-family: Arial;
+  display: block;
+  margin: auto;
 }
 
 input, textarea{
   width: 88%;
+  max-width: 88%;
+  min-width: 88%;
   margin: 10px 5%;
   padding: 2px;
   border: 1px solid rgb(68, 68, 68);
@@ -17,6 +21,11 @@ label {
   color: blue;
 }
 
+.view-column {
+  max-width: 500px;
+  min-width: 300px;
+}
+
 .button {
   width: 20%; 
   display: block; 
@@ -24,6 +33,13 @@ label {
   background-color: white; 
   color: red;
   outline: none;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
+.button:hover {
+  color: rgb(240, 240, 240);
+  background-color: rgb(110, 110, 110); 
 }
 
 h1 {
@@ -46,8 +62,11 @@ h1 {
 }
 
 .note {
-  margin: 15px;
+  margin: 15px auto;
   padding: 10px 0;
   border: 1px solid rgb(207, 207, 207);
   background-color: rgb(235, 235, 235);
+  max-width: 500px;
+  display: block;
+
 }

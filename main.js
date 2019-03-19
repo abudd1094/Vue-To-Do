@@ -6,7 +6,7 @@ Vue.component('addnote', {
         <input v-model="title" type="text" id="noteTitle"><br>
         <label for="noteContent">Content:</label>
         <textarea v-model="content" id="noteContent" rows="1" columns="5" style="height: 56px"></textarea>
-        <input type="submit" value="Submit" class="button">
+        <div style="width: 20%; display: block; margin: auto"><input type="submit" value="Add Note" class="button"></div>
       </form>  
     </div>
   `,
@@ -44,14 +44,14 @@ Vue.component('addnote', {
 Vue.component('mainpage', {
   template: `
     <div>
-      <button @click="toggleAddButton" class="button" style="font-size: 20px">+</button>
+      <button @click="toggleAddButton" class="button" style="font-size: 20px; width: 50px; border-radius: 50px;">+</button>
       <addnote v-show="showAddButton" @note-submitted="addNote"></addnote>
       <ul style="padding: 0; list-style: none;">
         <li v-for="note in notes" :key="note.id" style="padding: none;">
           <div class="note">
             <p class="note-title">{{ note.title }}</p> 
             <p class="note-content">{{ note.content }}</p>
-            <button @click="deleteNote" class="button">Delete</button>
+            <button @click="deleteNote(note)" class="button">Delete</button>
           </div>
         </li>
       </ul>
