@@ -13,7 +13,9 @@ Vue.component('addnote', {
   data() {
     return {
       title: null,
-      content: null
+      content: null,
+      id: 0,
+      edit: false
     }
   },
   methods: {
@@ -21,11 +23,21 @@ Vue.component('addnote', {
       let note = {
         title: this.title,
         content: this.content,
+        id: this.id
       }
       this.$emit('note-submitted', note)
       this.title = null
       this.content = null
+      this.id++
+    },
+    toggleEdit() {
+      if (this.edit === false) {
+        this.edit = true;
+      } else {
+        this.edit = false;
+      }
     }
+    
   }
 })
 
@@ -34,12 +46,25 @@ Vue.component('mainpage', {
     <div>
       <button @click="toggleAddButton" class="button" style="font-size: 20px">+</button>
       <addnote v-show="showAddButton" @note-submitted="addNote"></addnote>
+      <ul style="padding: 0; list-style: none;">
+        <li v-for="note in notes" :key="note.id" style="padding: none;">
+          <div class="note">
+            <p class="note-title">{{ note.title }}</p> 
+            <p class="note-content">{{ note.content }}</p>
+            <button @click="deleteNote" class="button">Delete</button>
+          </div>
+        </li>
+      </ul>
     </div>
   `,
   methods: {
     addNote(note) {
       this.notes.push(note);
-      console.log('this worked');
+      console.log('this push worked with id: ' + note.id);
+    },
+    deleteNote(note) {
+      this.notes.splice(this.notes.indexOf(note), 1);
+      console.log('this splice worked ' + this.notes.indexOf(note));
     },
     toggleAddButton() {
       console.log("this runs!")
@@ -47,8 +72,7 @@ Vue.component('mainpage', {
         this.showAddButton = true;
       } else {
         this.showAddButton = false;
-      }
-      
+      }   
     }
   },
   data() {

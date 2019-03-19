@@ -30,6 +30,21 @@ h1 {
   text-align: center;
 }
 
+.note-title {
+  font-size: 16px;
+  text-align: left;
+  padding: 2px;
+  margin: 10px 5%;
+  color: blue;
+}
+
+.note-content {
+  font-size: 14px;
+  text-align: left;
+  padding: 2px;
+  margin: 10px 5%;
+}
+
 .note {
   margin: 15px;
   padding: 10px 0;
