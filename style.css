@@ -3,6 +3,34 @@ body {
   font-family: Arial;
 }
 
+input, textarea{
+  width: 88%;
+  margin: 10px 5%;
+  padding: 2px;
+  border: 1px solid rgb(68, 68, 68);
+  font-size: 14px;
+}
+
+label {
+  margin-left: 5%;
+  color: blue;
+}
+
+.button {
+  width: 20%; 
+  display: block; 
+  margin: auto; 
+  background-color: white; 
+  color: red;
+}
+
 h1 {
   text-align: center;
+}
+
+.note {
+  margin: 15px;
+  padding: 10px 0;
+  border: 1px solid rgb(207, 207, 207);
+  background-color: rgb(235, 235, 235);
 }
